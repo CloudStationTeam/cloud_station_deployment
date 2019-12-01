@@ -1,0 +1,13 @@
+[Unit]
+Description=CloudStation Daphne
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/cloud_station_web
+ExecStart=/home/ubuntu/ENV/bin/daphne -b 0.0.0.0 -p 8001 webgms.asgi:application
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
