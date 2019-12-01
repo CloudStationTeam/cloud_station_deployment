@@ -4,8 +4,10 @@ echo "1. Updating Ubuntu"
 sudo apt-get update
 sudo apt-get upgrade
 
-echo "2. Installing NGINX"
+echo "2. Installing NGINX and docker"
 sudo apt-get install nginx
+sudo apt-get remove docker docker-engine docker.io
+sudo apt install docker.io
 
 echo "3. Cloning CloudStation web app source code"
 git clone https://github.com/CloudStationTeam/cloud_station_web.git ~/cloud_station_web
@@ -20,3 +22,4 @@ sudo apt-get install libxml2-dev libxslt-dev python-dev
 pip3 install -r ~/cloud_station_web/requirements.txt --no-cache-dir
 
 echo "Finished setting up server!"
+echo "**Now, please add server IP to ALLOWED_HOSTS in cloud_station_web/webgms/settings.py**"
