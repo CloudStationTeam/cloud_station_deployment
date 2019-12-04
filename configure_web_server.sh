@@ -3,6 +3,7 @@ echo "Django migration"
 source ~/ENV/bin/activate
 python3 ~/cloud_station_web/manage.py makemigrations
 python3 ~/cloud_station_web/manage.py migrate
+python3 ~/cloud_station_web/manage.py migrate --run-syncdb
 
 echo "Collecting staticfiles"
 if [ ! -d "~/cloud_station_web/static" ]; then
