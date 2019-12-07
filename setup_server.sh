@@ -18,8 +18,8 @@ mkdir ~/ENV
 python3 -m venv ~/ENV
 source ~/ENV/bin/activate
 # These dependencies are required for pymavlink
-sudo apt-get install libxml2-dev libxslt-dev python-dev
+sudo apt-get install libxml2-dev libxslt-dev python3-dev
 pip3 install -r ~/cloud_station_web/requirements.txt --no-cache-dir
-
+# git config --global core.editor "vim"
 echo "Finished setting up server!"
 echo "**Now, please add server IP to ALLOWED_HOSTS in cloud_station_web/webgms/settings.py**"
