@@ -46,10 +46,11 @@ use a server with Linux Distributions.
 6. Reload server (after a code update)    
     run ```bash ~/cloud_station_deployment/reload_server.sh```  
     The script does the following:  
-      1. Write database migrations  
-      2. Collect staticfiles  
-      3. Reload NGINX and Daphne  
-      4. Run django_background_tasks  
+      1. Pull latest version of the src code
+      2. Write database migrations  
+      3. Collect staticfiles  
+      4. Reload NGINX and Daphne  
+      5. Run django_background_tasks  
 
 ## CI/CD
 
