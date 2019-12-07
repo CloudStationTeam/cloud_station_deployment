@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Updating src code"
-git -C ~/cloud_station_web
+cd ~/cloud_station_web
 git pull
 echo "Django migration"
 source ~/ENV/bin/activate
