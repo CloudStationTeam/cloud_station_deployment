@@ -61,3 +61,22 @@ use a server with Linux Distributions.
   * Omkar Pathak
 
 ## Troubleshooting 
+1. How do I know my hardware setup is correct (the vehicle is sending mavlink messages to the server)?  
+   ```sudo tcpdump -n udp port 14550 -X``` will print the messages received at port 14550 (UDP).
+2. How do I know NGINX and Daphne is running? How do I know if there are erros?
+     ```
+     service nginx status  
+     service daphne status
+     ```
+3. How do I know the status of django_backgroundtasks?  
+  ```service backgroundtasks status```  
+4. The telemetry textbox shows that the websocket connection between server and broswer has been disconnected. What do I do?  
+    * This usually means Redis fails. Following the Django Channels recommendation, we use Redis as the backing store for the channel layer. We use Docker to run Redis.
+    * To check status of Docker: ```service docker status```  
+    * To show all Docker containers on the machine: ```sudo docker ps -a```  
+    * To restart Docker and Redis:  
+    ```
+    sudo systemctl start docker
+    sudo systemctl enable docker
+    sudo docker run -p 6379:6379 -d redis:2.8
+    ```
