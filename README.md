@@ -1,7 +1,11 @@
 # cloud_station_deployment
 The instructions describe our setup process on an EC2 instance running Ubuntu 18.04 LTS. The steps should be similar if you 
 use a server with Linux Distributions.  
-> [Source code of the CloudStation web app](https://github.com/CloudStationTeam/cloud_station_web)
+
+**Websites**  
+> [CloudStation Dashboard](http://ec2-52-52-195-170.us-west-1.compute.amazonaws.com/)  
+> [Source code of the CloudStation web app](https://github.com/CloudStationTeam/cloud_station_web)     
+> [Docs](https://cloud-station-docs.readthedocs.io/en/latest/)
 
 ## Deployment Instructions:
 1. Launch an EC2 instance on AWS with Ubuntu 18.04 LTS
