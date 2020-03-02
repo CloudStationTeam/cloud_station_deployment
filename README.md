@@ -58,7 +58,51 @@ use a server with Linux Distributions.
       4. Reload NGINX and Daphne  
       5. Run django_background_tasks  
 
-## CI/CD
+## AWS RDS (Aurora engine)
+Note that the project uses SQLite due to its low cost and ease of use with Django. However, AWS RDS can be configured for scalability and robustness. 
+1. Launch an RDS instance on AWS with Aurora with MySQL compatibility
+    * db.r5.large is good enough to test the deployment
+        * Configure Security Group (AWS EC2 Console)
+            * MySQL/Aurora(TCP)   Port:3306     Source:My RDS endpoint
+
+2. Add the RDS_DB_NAME, RDS_USERNAME, RDS_PASSWORD, RDS_HOSTNAME and RDS_PORT to the environment variables
+    * You can do this by editing the ~/.env file and adding the variables in the following format. 
+    ```
+    variable_name=value
+    ``` 
+    * Add this to the ~/.bash_profile file 
+    ```
+    set -a
+    . ~/.env
+    set +a    
+    ```
+    
+    * Make sure to run this command after editing the ~/.bash_profile file. 
+    ```
+    source ~/.bash_profile
+    ```
+
+3. Edit the cloud_station_web/webgms/settings.py file and change the DATABASES field to the following
+    ```
+    import os
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
+    } 
+    ```            
+4. Edit the cloud_station_deployment/backgroundtasks.service and add this line to the [Service] section.
+    ```
+    EnvironmentFile=/home/ubuntu/.env
+    ```
+5. run ```bash ~/cloud_station_deployment/configure_web_server.sh```   
+6. run ```bash ~/cloud_station_deployment/reload_server.sh```
 
 ## Authors
   * Lyuyang Hu
