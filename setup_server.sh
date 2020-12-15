@@ -1,13 +1,13 @@
 #!/bin/bash
 echo "######### Setting up server #########"
 echo "1. Updating Ubuntu"
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get update -y
+sudo apt-get upgrade -y
 
 echo "2. Installing NGINX and docker"
-sudo apt-get install nginx
+sudo apt-get install -y nginx
 sudo apt-get remove docker docker-engine docker.io
-sudo apt install docker.io
+sudo apt install -y docker.io
 
 echo "3. Cloning CloudStation web app source code"
 git clone https://github.com/CloudStationTeam/cloud_station_web.git ~/cloud_station_web
