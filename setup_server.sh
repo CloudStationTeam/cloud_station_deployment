@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "######### Setting up server #########"
 echo "1. Updating Ubuntu"
-sudo apt-get -y update
-sudo apt-get -y upgrade
+sudo apt-get --yes update
+sudo apt-get --yes upgrade
 
 echo "2. Installing NGINX and docker"
 sudo apt-get install -y nginx
