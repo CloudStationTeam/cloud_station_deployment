@@ -8,6 +8,7 @@ rm -rf cloud_station_web
 git clone https://github.com/CloudStationTeam/cloud_station_deployment.git
 sleep 3
 
+# Update requirements.txt.
 # Edit setup_server.sh if your repo is a different one.
 bash ~/cloud_station_deployment/setup_server.sh
 
@@ -24,7 +25,6 @@ sudo chgrp -R ubuntu * #change file owners to ubuntu group
 sudo chmod -R g+r * #change file permissions of file owners 
 
 bash ~/cloud_station_deployment/configure_web_server.sh 
-
 
 # Edit reload_server.sh if your repo is a different one.
 bash ~/cloud_station_deployment/reload_server.sh 
