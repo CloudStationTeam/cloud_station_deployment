@@ -40,7 +40,7 @@ echo "Installing Docker CE, Docker CE CLI, and containerd.io"
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 echo "3. Cloning CloudStation web app source code"
-git clone https://github.com/CloudStationTeam/cloud_station_web.git
+git clone -b Linux-22.4 https://github.com/CloudStationTeam/cloud_station_web.git
 
 # Checkout release if specified
 for arg in "$@"
