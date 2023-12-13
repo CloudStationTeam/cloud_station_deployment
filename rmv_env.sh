@@ -12,7 +12,7 @@ sleep 3
 
 # Update requirements.txt.
 # Edit setup_server.sh if your cloud_station_web repo is a different one.
-bash ~/cloud_station_deployment/setup_server.sh
+bash ~/cloud_station_deployment/setup_server.sh --tag=v3.0 
 
 # Refer to 
 # https://cloud-station-docs.readthedocs.io/en/latest/deployment.html#step-by-step-deployment-guide 
