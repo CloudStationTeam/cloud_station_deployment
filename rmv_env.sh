@@ -5,6 +5,8 @@ rm -rf cloud_station_deployment
 
 rm -rf cloud_station_web
 
+#sudo reboot
+
 git clone https://github.com/CloudStationTeam/cloud_station_deployment.git
 sleep 3
 
