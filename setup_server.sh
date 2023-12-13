@@ -37,7 +37,11 @@ echo "Updating package lists to include Docker packages from the new repository"
 sudo apt-get update
 
 echo "Installing Docker CE, Docker CE CLI, and containerd.io"
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+#sudo apt-get install docker-ce docker-ce-cli containerd.io
+bash ./docker.sh
+
+echo "Updating package lists"
+sudo apt-get update
 
 echo "3. Cloning CloudStation web app source code"
 git clone https://github.com/CloudStationTeam/cloud_station_web.git
