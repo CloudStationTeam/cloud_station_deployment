@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+
 echo "######### Setting up server #########"
 echo "For Amazon Web Services (AWS) Amazon Machine Image (AMI) Linux Ubuntu Server 22.04 LTS (HVM)"
 
