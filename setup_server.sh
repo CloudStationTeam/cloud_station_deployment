@@ -19,6 +19,9 @@ echo -e "\$nrconf{restart} = 'a';" | sudo tee -a /etc/needrestart/needrestart.co
 # Run needrestart to check if a restart is needed and handle it as per configuration
 sudo needrestart
 
+echo "Updating package lists"
+sudo apt-get update
+
 echo "2. Installing NGINX and docker"
 echo "Installing NGINX"
 sudo apt-get --yes install nginx
