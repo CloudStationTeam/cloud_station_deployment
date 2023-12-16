@@ -20,6 +20,8 @@ echo -e "\$nrconf{restart} = 'a';" | sudo tee -a /etc/needrestart/needrestart.co
 sudo needrestart
 
 echo "Updating package lists"
+sudo apt-get autoremove --yes
+sudo apt clean
 sudo apt-get update
 
 echo "2. Installing NGINX and docker"
