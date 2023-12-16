@@ -22,6 +22,7 @@ sudo apt-get upgrade -y
 echo "Updating package lists"
 sudo apt-get autoremove --yes
 sudo apt clean
+
 sudo apt-get update
 
 echo "2. Installing NGINX and docker"
