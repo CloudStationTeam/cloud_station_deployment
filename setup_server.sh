@@ -14,10 +14,10 @@ export DEBIAN_FRONTEND=noninteractive
 sudo apt-get upgrade -y
 
 # Configure needrestart to automatically restart services
-echo -e "\$nrconf{restart} = 'a';" | sudo tee -a /etc/needrestart/needrestart.conf > /dev/null
+sudo sed -i 's/^#\$nrconf{restart}.*$/$nrconf{restart} = '\''a'\'';/' /etc/needrestart/needrestart.conf
 
 # Run needrestart to check if a restart is needed and handle it as per configuration
-sudo needrestart
+sudo needrestart -y
 
 echo "Updating package lists"
 sudo apt-get autoremove --yes
