@@ -4,8 +4,20 @@ echo "######### Setting up server #########"
 echo "For Amazon Web Services (AWS) Amazon Machine Image (AMI) Linux Ubuntu Server 22.04 LTS (HVM)"
 
 echo "1. Updating Ubuntu"
-sudo apt-get --yes update
-sudo apt-get --yes upgrade
+# Update package database
+sudo apt-get update -y
+
+# Set non-interactive frontend for apt (this will avoid prompts during the upgrade)
+export DEBIAN_FRONTEND=noninteractive
+
+# Upgrade packages
+sudo apt-get upgrade -y
+
+# Configure needrestart to automatically restart services
+echo -e "\$nrconf{restart} = 'a';" | sudo tee -a /etc/needrestart/needrestart.conf > /dev/null
+
+# Run needrestart to check if a restart is needed and handle it as per configuration
+sudo needrestart
 
 echo "2. Installing NGINX and docker"
 echo "Installing NGINX"
