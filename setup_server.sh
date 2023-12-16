@@ -10,14 +10,14 @@ sudo apt-get update -y
 # Set non-interactive frontend for apt (this will avoid prompts during the upgrade)
 export DEBIAN_FRONTEND=noninteractive
 
-# Upgrade packages
-sudo apt-get upgrade -y
-
 # Configure needrestart to automatically restart services
 sudo sed -i 's/^#\$nrconf{restart}.*$/$nrconf{restart} = '\''a'\'';/' /etc/needrestart/needrestart.conf
 
 # Run needrestart to check if a restart is needed and handle it as per configuration
 sudo needrestart -y
+
+# Upgrade packages
+sudo apt-get upgrade -y
 
 echo "Updating package lists"
 sudo apt-get autoremove --yes
