@@ -29,6 +29,30 @@ function inputMapBoxkeyandInsertintosettings {
 }
 
 
+function inputGoogleMapsKeyandSaveToEnv {
+    read -p "To begin with the installation type in the google maps key:" gmkey
+
+    echo "You entered:"
+    echo $gmkey
+
+    read -p "If this is correct, enter "yes": " out
+
+    if ! [ "$out" = "yes" ]
+    then
+        echo "You did not type in 'yes'. Exiting....Google maps key not in yet. Please check documentation."
+        exit 1
+    fi
+    
+    
+    echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+    echo "Editing ~/cloud_station_web/.env to put google maps key in that you entered above."
+
+    touch ~/cloud_station_web/.env
+    echo GOOGLE_MAP_API_KEY=$gmkey>~/cloud_station_web/.env
+}
+
+
 
 echo "######### Setting up server #########"
 echo "For Amazon Web Services (AWS) Amazon Machine Image (AMI) Linux Ubuntu Server 22.04 LTS (HVM)"
@@ -117,6 +141,9 @@ echo "Changing server IP to ALLOWED_HOSTS to everything in cloud_station_web/web
 sed -i 's/\[\]/\[\*\]/g' ~/cloud_station_web/webgms/settings.py
 echo "Turning off debug mode in cloud_station_web/webgms/settings.py"
 sed -i 's/DEBUG = True/DEBUG = False/g' ~/cloud_station_web/webgms/settings.py
+
+echo "getting google maps key"
+inputGoogleMapsKeyandSaveToEnv
 
 echo "Finished setting up server!"
 
