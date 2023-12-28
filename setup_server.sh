@@ -4,7 +4,7 @@
 
 
 function get_name() {
-    read -p "Enter your name: " name
+    read -p "To begin with the installation type in the mapbox key:" mbkey
     echo "Hello, $name! Welcome!"
 }
 
