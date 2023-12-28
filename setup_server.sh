@@ -39,7 +39,8 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 # Temporary clone the dev branch
 echo "3. Cloning CloudStation web app source code"
-git clone https://github.com/CloudStationTeam/cloud_station_web.git
+#git clone https://github.com/CloudStationTeam/cloud_station_web.git
+git clone https://github.com/CloudStationTeam/cloud_station_web.git --branch dev --single-branch
 
 # Checkout release if specified Temporary removed until dev branch committed to release.
 #for arg in "$@"
