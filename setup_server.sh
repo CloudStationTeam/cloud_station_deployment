@@ -75,7 +75,12 @@ sudo apt-get --yes install python3-lxml #Now install python3-lxml
 # Install requirements from your requirements.txt file without using cache
 pip3 install -r ~/cloud_station_web/requirements.txt --no-cache-dir
 
+
+echo "Changing server IP to ALLOWED_HOSTS to everything in cloud_station_web/webgms/settings.py"
+sed -i 's/\[\]/\[\*\]/g' ~/cloud_station_web/webgms/settings.py
+echo "Turning off debug mode in cloud_station_web/webgms/settings.py"
+sed -i 's/DEBUG = True/DEBUG = False/g' ~/cloud_station_web/webgms/settings.py
+
 echo "Finished setting up server!"
-echo "**Now, please add server IP to ALLOWED_HOSTS in cloud_station_web/webgms/settings.py**"
 
 
