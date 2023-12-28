@@ -23,7 +23,9 @@ function inputMapBoxkeyandInsertintosettings {
     echo "Editing settings.py to put Mapbox key in that you entered above."
 
     # mbkey was entered above
-    sed -i 's/=""/="$mbkey"/g' ~/cloud_station_web/webgms/settings.py
+    #sed -i 's/=""/="$mbkey"/g' ~/cloud_station_web/webgms/settings.py
+    sed -i "s/=\"\"/=\"$mbkey\"/g" ~/cloud_station_web/webgms/settings.py
+    #sed -i "s/=\"\"/=\"$var\"/g" your_file
 }
 
 
@@ -49,9 +51,13 @@ echo "2. Installing NGINX and docker"
 echo "Installing NGINX"
 sudo apt-get --yes install nginx
 
+
 echo "Removing any old Docker installations"
 sudo apt-get --yes remove docker docker-engine docker.io containerd runc
 
+# use https://stackoverflow.com/questions/71393595/installing-docker-in-ubuntu-from-repo-cant-find-a-repo
+sudo apt-get update
+     
 echo "Installing dependencies for Docker installation"
 sudo apt-get --yes install apt-transport-https ca-certificates curl gnupg lsb-release
 
@@ -60,6 +66,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 
 echo "Setting up the Docker stable repository"
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
 
 echo "Installing Docker CE, Docker CE CLI, and containerd.io"
 sudo apt --yes install docker.io
