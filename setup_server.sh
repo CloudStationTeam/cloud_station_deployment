@@ -77,6 +77,7 @@ sudo apt-get --yes install nginx
 echo "Configuring nginx.conf"
 #curl http://checkip.amazonaws.com # our public IP address
 sed -i "s/www\.example\.com/$(curl -s http://checkip.amazonaws.com)/g" ~/cloud_station_deployment/nginx.conf
+sudo usermod -a -G ubuntu www-data
 
 echo "Removing any old Docker installations"
 sudo apt-get --yes remove docker docker-engine docker.io containerd runc
