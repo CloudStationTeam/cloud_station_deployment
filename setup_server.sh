@@ -15,6 +15,7 @@ sudo apt-get upgrade -y
 
 # Install EMACS, Professor Burke's favorite text editor
 sudo apt-get install emacs -y
+sudo apt-get install emacs -y
 
 echo "2. Installing NGINX and docker"
 echo "Installing NGINX"
