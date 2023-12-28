@@ -3,12 +3,7 @@
 # Define function first
 
 
-function get_name() {
-    read -p "To begin with the installation type in the mapbox key:" mbkey
-    echo "Hello, $name! Welcome!"
-}
-
-function inputMapBoxkeyandInsertintosettings{
+function inputMapBoxkeyandInsertintosettings {
     read -p "To begin with the installation type in the mapbox key:" mbkey
 
     echo "You entered:"
