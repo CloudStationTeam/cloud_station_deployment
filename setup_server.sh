@@ -1,6 +1,13 @@
 #!/bin/bash 
 
 # Define function first
+
+
+function get_name() {
+    read -p "Enter your name: " name
+    echo "Hello, $name! Welcome!"
+}
+
 function inputMapBoxkeyandInsertintosettings{
     read -p "To begin with the installation type in the mapbox key:" mbkey
 
