@@ -1,5 +1,31 @@
 #!/bin/bash 
 
+# Define function first
+function inputMapBoxkeyandInsertintosettings{
+    read -p "To begin with the installation type in the mapbox key " mbkey
+
+    echo "You entered:"
+    echo $mbkey
+
+    read -p "If this is correct, enter "yes": " out
+
+    if ! [ "$out" = "yes" ]
+    then
+        echo "You did not type in 'yes'. Exiting....Mapbox key not in yet. Please check documentation."
+        exit 1
+    fi
+    
+    
+    echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+    echo "Editing settings.py to put Mapbox key in that you entered above."
+
+    # mbkey was entered above
+    sed -i 's/=""/="$mbkey"/g' ~/cloud_station_web/webgms/settings.py
+}
+
+
+
 echo "######### Setting up server #########"
 echo "For Amazon Web Services (AWS) Amazon Machine Image (AMI) Linux Ubuntu Server 22.04 LTS (HVM)"
 
@@ -75,6 +101,8 @@ sudo apt-get --yes install python3-lxml #Now install python3-lxml
 # Install requirements from your requirements.txt file without using cache
 pip3 install -r ~/cloud_station_web/requirements.txt --no-cache-dir
 
+echo "getting mapbox key"
+inputMapBoxkeyandInsertintosettings
 
 echo "Changing server IP to ALLOWED_HOSTS to everything in cloud_station_web/webgms/settings.py"
 sed -i 's/\[\]/\[\*\]/g' ~/cloud_station_web/webgms/settings.py
