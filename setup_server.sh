@@ -2,7 +2,7 @@
 
 # Define function first
 function inputMapBoxkeyandInsertintosettings{
-    read -p "To begin with the installation type in the mapbox key " mbkey
+    read -p "To begin with the installation type in the mapbox key:" mbkey
 
     echo "You entered:"
     echo $mbkey
