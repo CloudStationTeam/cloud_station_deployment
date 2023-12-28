@@ -74,7 +74,9 @@ sudo apt-get install emacs -y
 echo "2. Installing NGINX and docker"
 echo "Installing NGINX"
 sudo apt-get --yes install nginx
-
+echo "Configuring nginx.conf"
+#curl http://checkip.amazonaws.com # our public IP address
+sed -i "s/www\.example\.com/$(curl -s http://checkip.amazonaws.com)/g" ~/cloud_station_deployment/nginx.conf
 
 echo "Removing any old Docker installations"
 sudo apt-get --yes remove docker docker-engine docker.io containerd runc
@@ -144,6 +146,7 @@ sed -i 's/DEBUG = True/DEBUG = False/g' ~/cloud_station_web/webgms/settings.py
 
 echo "getting google maps key"
 inputGoogleMapsKeyandSaveToEnv
+
 
 echo "Finished setting up server!"
 
