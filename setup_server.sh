@@ -141,7 +141,8 @@ echo "getting mapbox key"
 inputMapBoxkeyandInsertintosettings
 
 echo "Changing server IP to ALLOWED_HOSTS to everything in cloud_station_web/webgms/settings.py"
-sed -i 's/\[\]/\[\*\]/g' ~/cloud_station_web/webgms/settings.py
+#sed -i 's/\[\]/\[\*\]/g' ~/cloud_station_web/webgms/settings.py
+sed -i "s/\[\]/['*']/g" ~/cloud_station_web/webgms/settings.py
 echo "Turning off debug mode in cloud_station_web/webgms/settings.py"
 sed -i 's/DEBUG = True/DEBUG = False/g' ~/cloud_station_web/webgms/settings.py
 
