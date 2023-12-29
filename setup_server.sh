@@ -151,5 +151,6 @@ inputGoogleMapsKeyandSaveToEnv
 
 
 echo "Finished setting up server!"
+echo "now run bash ~/cloud_station_deployment/configure_web_server.sh "
 
 
