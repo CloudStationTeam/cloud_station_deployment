@@ -146,8 +146,8 @@ sed -i "s/\[\]/['*']/g" ~/cloud_station_web/webgms/settings.py
 echo "Turning off debug mode in cloud_station_web/webgms/settings.py"
 sed -i 's/DEBUG = True/DEBUG = False/g' ~/cloud_station_web/webgms/settings.py
 
-echo "getting google maps key"
-inputGoogleMapsKeyandSaveToEnv
+# echo "getting google maps key"
+# inputGoogleMapsKeyandSaveToEnv
 
 
 echo "Finished setting up server!"
