@@ -53,6 +53,24 @@ function inputGoogleMapsKeyandSaveToEnv {
 }
 
 
+# get mapbox API key from command line (easier long run)
+
+
+# Check if an API key is provided as a command-line argument
+if [ "$#" -eq 1 ]; then
+    api_key="$1"
+    echo "Using provided MB API key: $api_key"
+else
+    # If no API key is provided, prompt the user to enter one
+    read -p "Enter your MB API key: " api_key
+fi
+
+# Now you can use the $api_key variable in your script
+echo "API key: $api_key"
+
+# Rest of your script goes here...
+
+
 
 echo "######### Setting up server #########"
 echo "For Amazon Web Services (AWS) Amazon Machine Image (AMI) Linux Ubuntu Server 22.04 LTS (HVM)"
@@ -137,8 +155,11 @@ sudo apt-get --yes install python3-lxml #Now install python3-lxml
 # Install requirements from your requirements.txt file without using cache
 pip3 install -r ~/cloud_station_web/requirements.txt --no-cache-dir
 
-echo "getting mapbox key"
-inputMapBoxkeyandInsertintosettings
+#echo "getting mapbox key"
+#inputMapBoxkeyandInsertintosettings
+
+echo "Editing settings.py to put Mapbox key in that you entered above."
+sed -i "s/=\"\"/=\"$api_key\"/g" ~/cloud_station_web/webgms/settings.py
 
 echo "Changing server IP to ALLOWED_HOSTS to everything in cloud_station_web/webgms/settings.py"
 #sed -i 's/\[\]/\[\*\]/g' ~/cloud_station_web/webgms/settings.py
