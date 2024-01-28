@@ -193,7 +193,13 @@ echo "Finished running configure_web_server server!"
 end_time="$(date -u +%s)"
 
 elapsed="$(($end_time-$start_time))"
-echo "Total of $elapsed seconds elapsed for the entire process"
+#echo "Total of $elapsed seconds elapsed for the entire process"
+
+
+total_seconds=$1
+minutes=$((total_seconds / 60))
+seconds=$((total_seconds % 60))
+echo "Ellapsed time ${minutes} minutes ${seconds} seconds"
 
 
 
