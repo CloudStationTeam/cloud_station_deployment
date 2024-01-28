@@ -171,6 +171,19 @@ sed -i 's/DEBUG = True/DEBUG = False/g' ~/cloud_station_web/webgms/settings.py
 # inputGoogleMapsKeyandSaveToEnv
 
 
+
+# Command to add to the last line of bashrc
+command_to_add="export PROMPT_COMMAND='history -a'"
+
+# Append the command to the last line of ~/.bashrc
+echo "$command_to_add" >> ~/.bashrc
+
+# Reload the bashrc
+source ~/.bashrc
+
+echo "Command added to the last line of ~/.bashrc and bashrc reloaded."
+
+
 echo "Finished setting up server!"
 echo "now running bash ~/cloud_station_deployment/configure_web_server.sh "
 bash ~/cloud_station_deployment/configure_web_server.sh
