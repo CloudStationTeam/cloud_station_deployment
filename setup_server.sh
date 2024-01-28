@@ -70,6 +70,7 @@ echo "API key: $api_key"
 
 # Rest of your script goes here...
 
+start_time="$(date -u +%s)"
 
 
 echo "######### Setting up server #########"
@@ -187,6 +188,12 @@ echo "Command added to the last line of ~/.bashrc and bashrc reloaded."
 echo "Finished setting up server!"
 echo "now running bash ~/cloud_station_deployment/configure_web_server.sh "
 bash ~/cloud_station_deployment/configure_web_server.sh
+
+echo "Finished running configure_web_server server!"
+end_time="$(date -u +%s)"
+
+elapsed="$(($end_time-$start_time))"
+echo "Total of $elapsed seconds elapsed for the entire process"
 
 
 
